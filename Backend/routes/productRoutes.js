@@ -1,5 +1,5 @@
 const express = require ('express')
-const { addproduct, getallproducts, getoneproduct, updateproduct } = require('../controllers/productControllers')
+const { addproduct, getallproducts, getoneproduct, updateproduct, deleteproduct } = require('../controllers/productControllers')
 const router = express.Router()
  /**
   * @param POST /product/addproduct
@@ -27,4 +27,10 @@ const router = express.Router()
   * @access PUBLIC
   */
  router.put("/:idprod",updateproduct)
+ /**
+  * @param DELETE /product/:id
+  * @description delete products
+  * @access PUBLIC
+  */
+ router.delete("/:idprod",deleteproduct)
  module.exports = router

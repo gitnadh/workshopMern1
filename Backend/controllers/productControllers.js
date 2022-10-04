@@ -36,4 +36,13 @@ const addproduct = async (req,res) => {
         res.status(400).send(error.message)
     }
     }
- module.exports = {addproduct,getallproducts,getoneproduct,updateproduct}
+    const deleteproduct = async(req,res) => { 
+        try {
+            const {idprod} = req.params
+            await ProductModel.deleteOne({ _id: idprod });
+            res.send({msg:"The product deleted"})
+        } catch (error) {
+            res.status(400).send(error.message) 
+        }
+     }
+ module.exports = {addproduct,getallproducts,getoneproduct,updateproduct,deleteproduct}
